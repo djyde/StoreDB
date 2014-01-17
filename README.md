@@ -11,6 +11,10 @@ Why StoreDB?
 
 * 使用AngularJS配合StoreDB更是如虎添翼。
 
+Tutorial
+------
+[入门指南](http://www.cnblogs.com/Randylu/p/3523680.html)
+
 Install
 ------
 
