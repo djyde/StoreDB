@@ -13,7 +13,6 @@ var storedb = function(collectionName){
         cache.push(obj);
         localStorage.setItem(collectionName,JSON.stringify(cache));
         callback(err);
-        //document.write(cache)
       } else {
         cache.push(obj);
         localStorage.setItem(collectionName,JSON.stringify(cache));
@@ -82,7 +81,7 @@ var storedb = function(collectionName){
             }
           }
         }
-        document.write(JSON.stringify(cache))
+        localStorage.setItem(collectionName,JSON.stringify(cache));
         callback(err)
 
       } else {
