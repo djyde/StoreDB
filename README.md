@@ -13,6 +13,13 @@ Why StoreDB?
 
 Install
 ------
+
+###bower:
+```
+$ bower install storedb
+```
+
+###HTML:
 ```html
 <script type="text/javascript" src="/path/to/storedb.js"></script>
 ```
