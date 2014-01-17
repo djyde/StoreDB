@@ -17,7 +17,7 @@ var storedb = function(collectionName){
         cache.push(obj);
         localStorage.setItem(collectionName,JSON.stringify(cache));
         callback(err);
-      }   
+      }
     },
 
     find: function(obj,callback){
@@ -60,28 +60,33 @@ var storedb = function(collectionName){
             if(cache[i][key] == obj[key]){
               for(var upsrt in upsert){
                 switch(upsrt){
-                  case '$set':
-                  for(newkey in upsert[upsrt]){
-                    cache[i][newkey] = upsert[upsrt][newkey];
+                  case "$inc":
+                  for(var newkey in upsert[upsrt]){
+                    cache[i][newkey] = cache[i][newkey] + upsert[upsrt][newkey]
                   }
+                  break;
 
-                  case '$inc':
-                  for(newkey in upsert[upsrt]){
-                    cache[i][newkey] = cache[i][newkey] + upsert[upsrt][newkey];
+                  case "$set":
+                  for(var newkey in upsert[upsrt]){
+                    cache[i][newkey] = upsert[upsrt][newkey]
                   }
+                  break;
 
-                  case '$push':
-                  for(newkey in upsert[upsrt]){
+                  case "$push":
+                  for(var newkey in upsert[upsrt]){
                     cache[i][newkey].push(upsert[upsrt][newkey])
                   }
+                  break;
 
-                  default: err = 'unknown upsert';
+                  default:
+                  err = 'unknown upsert';
+
                 }
               }
             }
           }
         }
-        localStorage.setItem(collectionName,JSON.stringify(cache));
+        localStorage.setItem(collectionName,JSON.stringify(cache))
         callback(err)
 
       } else {
@@ -106,6 +111,7 @@ var storedb = function(collectionName){
             }
           }
           localStorage.setItem(collectionName,JSON.stringify(cache));
+          callback(err);
         } else {
           err = 'collection not exist';
           callback(err);
