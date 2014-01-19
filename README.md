@@ -91,7 +91,7 @@ APIs
 #####.insert(newObj,callback)
 * `newObj`：`JSON object`，插入的文档。
 * `callback`：`function`，包含参数`err`和`result`：无错误时`err`返回`undefined`。`result`返回此次创建的文档对象。
-* **系统会自动为每一条文档创建unix时间戳id——`_id`，可通过callback中的result._id查看插入文档时所创建的id。
+* **系统会自动为每一条文档创建unix时间戳id——`_id`**，可通过callback中的result._id查看插入文档时所创建的id。
 
 #####.find()
 * 返回`Array`，该集合所有文档。
