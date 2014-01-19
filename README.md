@@ -34,7 +34,7 @@ Quick Start
 ###插入（Insert）
 向名为`players`的集合中插入一条文档：
 ```javascript
-storedb('players').insert({"name":"Randy","sex":"male","score":20},function(err){
+storedb('players').insert({"name":"Randy","sex":"male","score":20},function(err,result){
   if(!err){
     //do sth...
   } else //do sth...
@@ -89,15 +89,16 @@ APIs
 * `collectionName`：`string`，需要操作的集合名。如果集合不存在，则自动创建。
 
 #####.insert(newObj,callback)
-* `newObj`：`JSON object`，插入的文档
-* `callback`：`function`，包含参数`err`，无错误时`err`返回`undefined`
+* `newObj`：`JSON object`，插入的文档。
+* `callback`：`function`，包含参数`err`和`result`：无错误时`err`返回`undefined`。`result`返回此次创建的文档对象。
+* **系统会自动为每一条文档创建unix时间戳id——`_id`，可通过callback中的result._id查看插入文档时所创建的id。
 
 #####.find()
 * 返回`Array`，该集合所有文档。
 
 #####.find(matchObj,callback)
 * `matchObj`：`JSON object`，匹配的文档
-* `callback`：`function`，包含参数`err`和`result`，无错误时`err`返回`undefined`。`result`返回查询结果数组
+* `callback`：`function`，包含参数`err`和`result`：无错误时`err`返回`undefined`。`result`返回查询结果数组。
 
 #####.update(matchObj,upsert,callback)
 * `matchObj`：`JSON object`，匹配的文档
@@ -105,7 +106,7 @@ APIs
 ```
 storedb('collectionA').update({"foo":"hi"},{"$set":{"bar":"hello"}},function(err){})
 ```
-* `callback`：`function`，包含参数`err`，无错误时`err`返回`undefined`
+* `callback`：`function`，包含参数`err`：无错误时`err`返回`undefined`。
 
 修改器类型：
 - `$inc`：为目标增加（或减小）对应数值
@@ -116,8 +117,8 @@ storedb('collectionA').update({"foo":"hi"},{"$set":{"bar":"hello"}},function(err
 * 移除该集合所有文档
 
 #####.remove(matchObj,callback)
-* `matchObj`：`JSON object`，匹配的对应要删除的文档
-* `callback`：`function`，包含参数`err`无错误时`err`返回`undefined`
+* `matchObj`：`JSON object`，匹配的对应要删除的文档。
+* `callback`：`function`，包含参数`err`：无错误时`err`返回`undefined`。
 
 Donate
 ------

@@ -4,19 +4,22 @@ var storedb = function(collectionName){
   if(localStorage[collectionName]){
     ls = JSON.parse(localStorage[collectionName]);
   }
+
   return {
     insert: function(obj,callback){
       if(ls){
+        obj["_id"] = new Date().valueOf();
         for(var i = 0; i < ls.length; i++){
           cache.push(ls[i])
         }
         cache.push(obj);
         localStorage.setItem(collectionName,JSON.stringify(cache));
-        callback(err);
+        callback(err,obj);
       } else {
+        obj["_id"] = new Date().valueOf();
         cache.push(obj);
         localStorage.setItem(collectionName,JSON.stringify(cache));
-        callback(err);
+        callback(err,obj);
       }
     },
 
