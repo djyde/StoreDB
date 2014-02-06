@@ -23,10 +23,6 @@ storedb = function(collectionName) {
     },
     find: function(obj, callback) {
       var data, key, result, value, _i, _j, _len, _len1;
-      if (!ls) {
-        callback("collection not exist", []);
-        return;
-      }
       if (ls) {
         for (_i = 0, _len = ls.length; _i < _len; _i++) {
           data = ls[_i];
@@ -35,6 +31,10 @@ storedb = function(collectionName) {
       }
       if (arguments.length === 0) {
         return cache;
+      }
+      if (!ls) {
+        callback("collection not exist", []);
+        return;
       }
       result = [];
       for (key in obj) {

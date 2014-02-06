@@ -9,11 +9,11 @@ storedb = (collectionName) ->
 			localStorage.setItem collectionName, JSON.Stringify cache
 			callback err,obj
 		find: (obj, callback) ->
+			cache.push data for data in ls if ls
+			return cache if arguments.length is 0
 			if not ls
 				callback("collection not exist", [])
 				return
-			cache.push data for data in ls if ls
-			return cache if arguments.length is 0
 			result = []
 			for key, value of obj
 				result.push data for data in cache if data[key] is value
