@@ -14,12 +14,14 @@ var storedb = function(collectionName){
         }
         cache.push(obj);
         localStorage.setItem(collectionName,JSON.stringify(cache));
-        callback(err,obj);
+        if(callback)
+          callback(err,obj);
       } else {
         obj["_id"] = new Date().valueOf();
         cache.push(obj);
         localStorage.setItem(collectionName,JSON.stringify(cache));
-        callback(err,obj);
+        if(callback)
+          callback(err,obj);
       }
     },
 
@@ -45,10 +47,16 @@ var storedb = function(collectionName){
               }
             }
           }
-          callback(err,result)
+          if(callback)
+            callback(err,result);
+          else
+            return result;
         } else {
           err = 'collection not exist';
-          callback(err,result);
+          if(callback)
+            callback(err,result);
+          else
+            return result;
         }
       }     
     },
@@ -90,11 +98,13 @@ var storedb = function(collectionName){
           }
         }
         localStorage.setItem(collectionName,JSON.stringify(cache))
-        callback(err)
+        if(callback)
+          callback(err)
 
       } else {
         err = 'collection not exist';
-        callback(err);
+        if(callback)
+          callback(err);
       }
     },
 
@@ -114,10 +124,12 @@ var storedb = function(collectionName){
             }
           }
           localStorage.setItem(collectionName,JSON.stringify(cache));
-          callback(err);
+          if(callback)
+            callback(err);
         } else {
           err = 'collection not exist';
-          callback(err);
+          if(callback)
+            callback(err);
         }
       }
     },
