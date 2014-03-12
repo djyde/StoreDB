@@ -94,6 +94,10 @@ var storedb = function(collectionName){
 
                 }
               }
+
+              if(err == 'unknown upsert') {
+                cache[i] = upsert;
+              }
             }
           }
         }
