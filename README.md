@@ -75,6 +75,10 @@ storedb('players').update({"name":"Randy"},{"$inc":{"score":"10"}},function(err)
 ```
 你可能已经注意到，StoreDB拥有和MongoDB一样的修改器！关于修改器类型请查看[API](#apis)。
 
+如果修改器为空，则默认为`$set`修改器：
+```javascript
+storedb('players').update({"name":"Randy"}, {"sex":"male","name":"kriss"})
+```
 
 ###删除（Remove）
 删除在`players`集合中`name`为`Randy`的一条文档：
