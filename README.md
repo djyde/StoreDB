@@ -14,9 +14,7 @@ Why StoreDB?
 
 * 使用AngularJS配合StoreDB更是如虎添翼。
 
-Example
-------
-[EverFeed](http://djyde.github.io/everfeed)：Simple RSS reader
+
 
 
 Tutorial
