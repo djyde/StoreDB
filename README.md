@@ -135,4 +135,4 @@ storedb('collectionA').update({"foo":"hi"},{"$set":{"bar":"hello"}},function(err
 
 Donate
 ------
- <a href='http://me.alipay.com/djyde'> <img src='https://img.alipay.com/sys/personalprod/style/mc/btn-index.png' /> </a>
+由于支付宝取消支付页面，如果你支持 StoreDB，可以通过转账到我的支付宝账户 djyde520@gmail.com 。
