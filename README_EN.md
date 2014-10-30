@@ -1,7 +1,7 @@
 StoreDB
 =======
 
-StoreDB is a local data store based on HTML5 LocalStorage. It makes up some shortages of native LocalStorage and extends LocalStorage functionality by providing MogonDB-Style APIs and using concepts like `collection`, `document`, etc.
+StoreDB is a web local database based on localStorage. You can store more complex data in localStorage easily and APIs-friendly(MongoDB like).
 
 Why StoreDB?
 ------
