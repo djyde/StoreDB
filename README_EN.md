@@ -126,4 +126,4 @@ storedb('collectionA').update({"foo":"hi"},{"$set":{"bar":"hello"}},function(err
 
 Donate
 ------
- <a href='http://me.alipay.com/djyde'> <img src='https://img.alipay.com/sys/personalprod/style/mc/btn-index.png' /> </a>
+Alipay: djyde520@gmail.com
