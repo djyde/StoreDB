@@ -50,7 +50,6 @@ var storedb = function(collectionName){
                                 break;
 
                             case "$set":
-                                console.log('ssssss');
                                 for(var newkey in upsert[upsrt]){
                                     cache[i][newkey] = upsert[upsrt][newkey];
                                 }
