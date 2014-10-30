@@ -4,7 +4,7 @@ StoreDB
 [English version](https://github.com/djyde/StoreDB/blob/master/README_EN.md)
 
 
-StoreDB是一个基于localStorage的本地储存库，通过模拟MongoDB的一些API和概念（如“集(`collection`)”和“文档(`document`)”），弥补了原生localStorage的多处不足，大大增强了localStorage的功能。
+StoreDB是一个基于localStorage的本地储存库，通过模拟MongoDB的一些API和概念（如“集(`collection`)”和“文档(`document`)”），使你能使用 localStorage 储存复杂数据。
 
 Why StoreDB?
 ------
