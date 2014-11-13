@@ -45,7 +45,7 @@ var storedb = function(collectionName){
                             switch(upsrt){
                             case "$inc":
                                 for(var newkey in upsert[upsrt]){
-                                    cache[i][newkey] += upsert[upsrt][newkey];
+                                    cache[i][newkey] = parseInt(cache[i][newkey]) + parseInt(upsert[upsrt][newkey]);
                                 }
                                 break;
 
