@@ -19,6 +19,9 @@ Demo
 Everfeed - RSS Reader
 http://everfeed.ml/
 
+MoniCoin - 比特币虚拟交易
+http://djyde.github.io/MoniCoin
+
 
 Tutorial
 ------
