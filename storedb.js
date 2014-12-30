@@ -82,7 +82,7 @@ var storedb = function(collectionName){
             } else {
 
                 for(var key in obj){
-                    for(var i = 0; i < cache.length; i++){
+                    for (var i = cache.length - 1; i >= 0; i--) {
                         if(cache[i][key] == obj[key]){
                             cache.splice(i,1);
                         }
