@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "module": "umd",
+    "target": "es5",
+    "outDir": "./"
+  },
+  "files": [
+    "index.ts"
+  ]
+}
