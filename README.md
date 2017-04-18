@@ -30,12 +30,12 @@ Tutorial
 Install
 ------
 
-###bower:
+### bower:
 ```
 $ bower install storedb
 ```
 
-###HTML:
+### HTML:
 ```html
 <script type="text/javascript" src="/path/to/storedb.js"></script>
 ```
@@ -43,7 +43,7 @@ $ bower install storedb
 Quick Start
 ------
 
-###插入（Insert）
+### 插入（Insert）
 向名为`players`的集合中插入一条文档：
 ```javascript
 storedb('players').insert({"name":"Randy","sex":"male","score":20},function(err,result){
@@ -53,7 +53,7 @@ storedb('players').insert({"name":"Randy","sex":"male","score":20},function(err,
 })
 ```
 
-###查询（Find）
+### 查询（Find）
 查询`players`集合中`name`为`Randy`的文档：
 ```javascript
 storedb('players').find({"name":"Randy"},function(err,result){
@@ -68,7 +68,7 @@ storedb('players').find()
 ```
 函数将返回一个数组类型。
 
-###更新（Update）
+### 更新（Update）
 为`players`集合中`name`为`Randy`的`score`增加`10`：
 ```javascript
 storedb('players').update({"name":"Randy"},{"$inc":{"score":"10"}},function(err){
@@ -84,7 +84,7 @@ storedb('players').update({"name":"Randy"},{"$inc":{"score":"10"}},function(err)
 storedb('players').update({"name":"Randy"}, {"sex":"male","name":"kriss"})
 ```
 
-###删除（Remove）
+### 删除（Remove）
 删除在`players`集合中`name`为`Randy`的一条文档：
 ```javascript
 storedb('players').remove({"name":"Randy"},function(err){
@@ -101,22 +101,22 @@ storedb('players').remove()
 APIs
 ------
 
-####storedb(collectionName)
+#### storedb(collectionName)
 * `collectionName`：`string`，需要操作的集合名。如果集合不存在，则自动创建。
 
-#####.insert(newObj,callback)
+##### .insert(newObj,callback)
 * `newObj`：`JSON object`，插入的文档。
 * `callback`：`function`，包含参数`err`和`result`：无错误时`err`返回`undefined`。`result`返回此次创建的文档对象。
 * **系统会自动为每一条文档创建unix时间戳id——`_id`**，可通过callback中的result._id查看插入文档时所创建的id。
 
-#####.find()
+##### .find()
 * 返回`Array`，该集合所有文档。
 
-#####.find(matchObj,callback)
+##### .find(matchObj,callback)
 * `matchObj`：`JSON object`，匹配的文档
 * `callback`：`function`，包含参数`err`和`result`：无错误时`err`返回`undefined`。`result`返回查询结果数组。
 
-#####.update(matchObj,upsert,callback)
+##### .update(matchObj,upsert,callback)
 * `matchObj`：`JSON object`，匹配的文档
 * `upsert`：`JSON object`，对象中key应为修改器类型，value为修改对象。例如：
 ```
@@ -129,10 +129,10 @@ storedb('collectionA').update({"foo":"hi"},{"$set":{"bar":"hello"}},function(err
 - `$set`: 修改目标内容
 - `$push`：为目标数组插入对应元素
 
-#####.remove()
+##### .remove()
 * 移除该集合所有文档
 
-#####.remove(matchObj,callback)
+##### .remove(matchObj,callback)
 * `matchObj`：`JSON object`，匹配的对应要删除的文档。
 * `callback`：`function`，包含参数`err`：无错误时`err`返回`undefined`。
 

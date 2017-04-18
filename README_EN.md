@@ -22,12 +22,12 @@ Tutorial
 Install
 ------
 
-###bower:
+### bower:
 ```
 $ bower install storedb
 ```
 
-###HTML:
+### HTML:
 ```html
 <script type="text/javascript" src="/path/to/storedb.js"></script>
 ```
@@ -35,7 +35,7 @@ $ bower install storedb
 Quick Start
 ------
 
-###Insert
+### Insert
 Insert data into `players` set:
 ```javascript
 storedb('players').insert({"name":"Randy","sex":"male","score":20},function(err,result){
@@ -45,7 +45,7 @@ storedb('players').insert({"name":"Randy","sex":"male","score":20},function(err,
 })
 ```
 
-###Find
+### Find
 query data with the `name` as `Randy` in `players` collection
 ```javascript
 storedb('players').find({"name":"Randy"},function(err,result){
@@ -60,7 +60,7 @@ storedb('players').find()
 ```
 List-type data would be returned from function
 
-###Update
+### Update
 update `score` value by increasing 10 with the `name` as `Randy` in `player` collection
 ```javascript
 storedb('players').update({"name":"Randy"},{"$inc":{"score":"10"}},function(err){
@@ -72,7 +72,7 @@ storedb('players').update({"name":"Randy"},{"$inc":{"score":"10"}},function(err)
 You may have noticed that StoreDB has the MongoDB-style modifier! Check the modifier type out in [API](#apis).
 
 
-###Remove
+### Remove
 remove data with the `name` as `Randy` in `players` collection
 ```javascript
 storedb('players').remove({"name":"Randy"},function(err){
@@ -89,22 +89,22 @@ storedb('players').remove()
 APIs
 ------
 
-####storedb(collectionName)
+#### storedb(collectionName)
 * `collectionName`：`string`，automatically create if not exist。
 
-#####.insert(newObj,callback)
+##### .insert(newObj,callback)
 * `newObj`：`JSON object`，插入的文档。
 * `callback`：`function`，包含参数`err`和`result`：无错误时`err`返回`undefined`。`result`返回此次创建的文档对象。
 * **系统会自动为每一条文档创建unix时间戳id——`_id`**，可通过callback中的result._id查看插入文档时所创建的id。
 
-#####.find()
+##### .find()
 * return `Array`，该集合所有文档。
 
-#####.find(matchObj,callback)
+##### .find(matchObj,callback)
 * `matchObj`：`JSON object`，匹配的文档
 * `callback`：`function`，包含参数`err`和`result`：无错误时`err`返回`undefined`。`result`返回查询结果数组。
 
-#####.update(matchObj,upsert,callback)
+##### .update(matchObj,upsert,callback)
 * `matchObj`：`JSON object`，匹配的文档
 * `upsert`：`JSON object`，对象中key应为修改器类型，value为修改对象。例如：
 ```
@@ -117,10 +117,10 @@ storedb('collectionA').update({"foo":"hi"},{"$set":{"bar":"hello"}},function(err
 - `$set`: 修改目标内容
 - `$push`：为目标数组插入对应元素
 
-#####.remove()
+##### .remove()
 * 移除该集合所有文档
 
-#####.remove(matchObj,callback)
+##### .remove(matchObj,callback)
 * `matchObj`：`JSON object`，匹配的对应要删除的文档。
 * `callback`：`function`，包含参数`err`：无错误时`err`返回`undefined`。
 
