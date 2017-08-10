@@ -1,6 +1,8 @@
 StoreDB
 =======
 
+[DEPRECATED] Use [localForage](https://localforage.github.io/localForage) instead.
+
 [English version](https://github.com/djyde/StoreDB/blob/master/README_EN.md)
 
 
